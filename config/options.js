@@ -18,13 +18,25 @@ const optionsYargs = yargs(process.argv.slice(2))
     alias: "segmento",
     describe: "tipo de segmento",
     type: "string",
-    demandOption: true,
+    demandOption: false,
   })
   .option("p", {
     alias: "file",
     describe: "caminho para arquivo",
     type: "string",
     demandOption: false,
+  })
+  .option("c", {
+    alias: "empresa",
+    describe: "busca por nome da empresa",
+    type: "string",
+    demandOption: false
+  })
+  .option("o", {
+    alias: "output",
+    describe: "exporta resultados para um arquivo json",
+    type: "string",
+    demandOption: false
   })
   .example(
     "$0 -f 21 -t 34 -s p",
