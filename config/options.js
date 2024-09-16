@@ -21,7 +21,7 @@ const optionsYargs = yargs(process.argv.slice(2))
     demandOption: true,
   })
   .option("p", {
-    alias: "path",
+    alias: "file",
     describe: "caminho para arquivo",
     type: "string",
     demandOption: false,

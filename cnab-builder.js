@@ -9,19 +9,31 @@ import optionsYargs from "./config/options.js";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
+const defaultFilePath = `${__dirname}/example/cnabExample.rem`
 
 const { 
   from,
   to, 
   segmento,
   // permite a entrada de um caminho para o arquivo, e um fallback para um arquivo exemplo
-  file = path.resolve(`${__dirname}/example/cnabExample.rem`), 
+  file = path.resolve(defaultFilePath), 
 } = optionsYargs;
 
 const sliceArrayPosition = (arr, ...positions) => [...arr].slice(...positions);
 
 const messageLog = (segmento, segmentoType, from, to) => `
+${
+  file === defaultFilePath 
+    ? `
+usando arquivo de exemplo em ${defaultFilePath}
+    `
+    : `
+usando arquivo: ${file}
+    `
+}
+
 ----- Cnab linha ${segmentoType} -----
+
 
 posição from: ${chalk.inverse.bgBlack(from)}
 
